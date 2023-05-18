@@ -1,0 +1,37 @@
+Hi Itay.
+Following our zoom session I put up a slightly revised and more focused and detailed description of the project:
+https://docs.google.com/document/d/1vrG-JcmtCkDieN9ncj_zEk_vNj5Tja-Qmpv2_GUiWi4/edit?usp=sharing
+I hope this is clear and will help you get started on the project.
+Shilo (shilo.shiff@biu.ac.il<mailto:shilo.shiff@biu.ac.il>) will help you with the data – we’ll follow up with him right after the holiday.
+If you need computation power and storage (we are talking about gpu-based deep learning code over a very large dataset!) – let me know.
+Hag Shameach,
+Oren.
+
+
+From: OREN GLICKMAN
+Sent: Wednesday, March 22, 2023 5:04 PM
+To: Itay Barkai <7itaybarkai@gmail.com>
+Subject: RE: פרוייקט ל"סדנא לפרוייקטים מתקדמים" לתואר שני ללא תזה
+
+Hi Itay.
+I am happy you are interested in the project.
+You can set a time to discuss details via the following link: : https://calendly.com/orenglickman1/60m/
+Best,
+Oren.
+
+
+From: Itay Barkai <7itaybarkai@gmail.com<mailto:7itaybarkai@gmail.com>>
+Sent: Tuesday, March 21, 2023 8:25 PM
+To: OREN GLICKMAN <oren.glickman@biu.ac.il<mailto:oren.glickman@biu.ac.il>>
+Subject: פרוייקט ל"סדנא לפרוייקטים מתקדמים" לתואר שני ללא תזה
+
+היי אורן,
+שמי איתי ברקאי ואני סטודנט בשנה האחרונה לתואר שני במדמ"ח.
+אני בוגר תואר ראשון במתמטיקה בהצטיינות כתיכוניסט והשתחררתי החודש משירות של 5 שנים ב8200.
+
+נרשמתי אתמול ברישום מאוחר לסדנא ואני מחפש פרוייקט בעולם הdeep learning.
+ראיתי במודל והתעניינתי באפשרות לפרויקט שלך:
+ "Deep Learning model to estimate near-surface air temperature in Israel"
+אשמח לשמוע יותר על ההיקף, צפי הזמנים והעשייה הפרקטית בפרויקט וכמובן האם הוא עדיין רלוונטי.
+
+תודה
