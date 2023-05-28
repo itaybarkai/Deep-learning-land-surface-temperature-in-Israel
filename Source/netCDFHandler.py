@@ -9,7 +9,7 @@ class NetCDFHandler:
         only_day: if only day samples requires, make the output more ram efficient
         """
         if year:
-            filename = FILE_CONSTS.LST_FORMAT_BY_YEAR_FILE.format(year=2020)
+            filename = FILE_CONSTS.LST_FORMAT_BY_YEAR_FILE.format(year=int(year))
 
         if filename:
             self.nc = nc.Dataset(filename, 'r')
