@@ -1,8 +1,10 @@
 import os
 
 class FILE_CONSTS:
-    LST_FORMAT_BY_YEAR_FILE = os.getcwd() + "\\..\\Data\\LST\\LST_{year}_NetCDF.nc"
-    TOPOGRAPHY_FILE = os.getcwd() + "\\..\\Data\\Topography\\Topography_Israel.tif"
+    def LST_FORMAT_BY_YEAR_FILE(year):
+        return os.getcwd() + f"\\..\\Data\\LST\\unprocessed\\LST_{year}_NetCDF.nc"
+    def TOPOGRAPHY_FILE():
+        return os.getcwd() + "\\..\\Data\\Topography\\Topography_Israel.tif"
 
 class DATA_CONSTS:
     class VARIABLES:
@@ -27,3 +29,6 @@ class DATA_CONSTS:
 
 class GENERAL_CONSTS:
     GRID_SIZE = 9
+
+class DATASET_CONSTS:
+    FEATURES_COUNT = 5

@@ -1,3 +1,4 @@
+import logging
 import netCDF4 as nc
 from consts import FILE_CONSTS, DATA_CONSTS
 
@@ -6,10 +7,10 @@ class NetCDFHandler:
         """
         Handles netCDF files.
         Must get filename of year. giving year will take this years lst file.
-        only_day: if only day samples requires, make the output more ram efficient
+        only_day: if raw data should return only the "day" band (changes shape)
         """
         if year:
-            filename = FILE_CONSTS.LST_FORMAT_BY_YEAR_FILE.format(year=int(year))
+            filename = FILE_CONSTS.LST_FORMAT_BY_YEAR_FILE(year=int(year))
 
         if filename:
             self.nc = nc.Dataset(filename, 'r')
@@ -37,3 +38,28 @@ class NetCDFHandler:
 
     def close(self):
         self.nc.close()
+
+
+def get_raw_data(year, test_lower_days=None, only_day=True):
+    """
+    year: of LST file
+    test_lower_days: int, how many days to slice. Use for fast debugging
+    only_day: if raw data should return only the "day" band (changes shape)
+    
+    returns (longs, lats, days, raw_data)
+    raw_data.shape = (days, lats, longs)
+    """
+    n = NetCDFHandler(year=year, only_day=only_day)
+    longs = n.get_variable(DATA_CONSTS.VARIABLES.LON)
+    lats = n.get_variable(DATA_CONSTS.VARIABLES.LAT)
+    days = n.get_variable(DATA_CONSTS.VARIABLES.DAY)
+    raw_data = n.get_variable(DATA_CONSTS.VARIABLES.DATA)
+    # raw_data.shape = (days, lats, longs)
+    n.close()
+
+    if isinstance(test_lower_days, int):
+        days = days[:test_lower_days]
+        raw_data = raw_data[:test_lower_days, :, :]
+
+    logging.info(f"get_raw_data DONE: year={year}, lower_days={test_lower_days}, only_day={only_day}")
+    return (longs, lats, days, raw_data)

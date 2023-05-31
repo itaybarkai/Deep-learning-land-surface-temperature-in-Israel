@@ -1,8 +1,13 @@
 import os
+import logging
+from preprocessing import get_day_dataset
 from netCDFHandler import NetCDFHandler
 from consts import FILE_CONSTS
 
-lst_handler_2020 = NetCDFHandler(FILE_CONSTS.LST_FORMAT_BY_YEAR_FILE.format(year=2020))
-print(lst_handler_2020.get_dimensions())
+if __name__ == "__main__":
+    logging.getLogger().setLevel(logging.INFO)
+    if os.path.basename(os.getcwd()) == "git":
+        os.chdir("Source")
 
-lst_handler_2020.close()
+    output = get_day_dataset(year=2020, test_lower_days=2)
+    print (output.shape)

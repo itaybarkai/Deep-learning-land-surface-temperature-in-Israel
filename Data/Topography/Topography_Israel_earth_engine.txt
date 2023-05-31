@@ -1,0 +1,23 @@
+// lat,long taken from min/max of lst dataset 
+var israel = ee.Geometry.BBox(33.20034536095077, 34.00777509644337, 36.59654466075468, 28.996716325654262)
+
+var dataset = ee.Image('USGS/SRTMGL1_003');
+
+
+var i_data = dataset.clipToBoundsAndScale(israel, 409, 603)
+
+Export.image.toDrive({
+    'image': i_data,
+    'fileFormat': 'GeoTIFF',
+    'folder': 'MasterProject',
+    'fileNamePrefix': 'my_topo',
+    'description': 'my_topo',
+    'dimensions': '409x603'
+});
+
+
+//Map.setCenter(35.20034536095077, 31.00777509644337)
+//Map.addLayer(israel)
+//var i_data = dataset.clip(israel)
+//print (i_data);
+//print(i_data.projection().nominalScale())
