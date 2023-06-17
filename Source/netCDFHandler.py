@@ -40,7 +40,7 @@ class NetCDFHandler:
         self.nc.close()
 
 
-def get_raw_data(year, test_lower_days=None, only_day=True):
+def get_raw_LST_data(year, test_lower_days=None, only_day=True):
     """
     year: of LST file
     test_lower_days: int, how many days to slice. Use for fast debugging
@@ -61,5 +61,7 @@ def get_raw_data(year, test_lower_days=None, only_day=True):
         days = days[:test_lower_days]
         raw_data = raw_data[:test_lower_days, :, :]
 
-    logging.info(f"get_raw_data DONE: year={year}, lower_days={test_lower_days}, only_day={only_day}")
+    assert(longs.shape[0] == 409 and lats.shape[0] == 603)
+
+    logging.info(f"get_raw_LST_data DONE: year={year}, lower_days={test_lower_days}, only_day={only_day}")
     return (longs, lats, days, raw_data)

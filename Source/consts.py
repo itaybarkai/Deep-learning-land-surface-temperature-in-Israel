@@ -31,4 +31,14 @@ class GENERAL_CONSTS:
     GRID_SIZE = 9
 
 class DATASET_CONSTS:
-    FEATURES_COUNT = 5
+    FEATURES = ["day_cos", "day_sin", "long", "lat", "lst_avg", "height_avg"] + \
+                ["h_" + str(i) for i in range(1, GENERAL_CONSTS.GRID_SIZE * GENERAL_CONSTS.GRID_SIZE + 1)]
+    FEATURES_COUNT = len(FEATURES)
+    DAY_COS_INDEX = 0
+    DAY_SIN_INDEX = 1
+    LONG_INDEX = 2
+    LAT_INDEX = 3
+    LST_AVG_INDEX = 4
+    HEIGHT_AVG_INDEX = 5
+    FIRST_HEIGHT_DIFF = 6
+    LAST_HEIGHT_DIFF = 86
