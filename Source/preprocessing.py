@@ -107,11 +107,12 @@ def _preprocess_multiple_features(samples, scalers_dict, config, first_feature_i
     The performed scaler is kept in the given scalers_dict
     """
     scaler = _get_scaler(config, first_feature_index)
-    for feature_index in range(first_feature_index, last_feature_index + 1):
-        scaler.partial_fit(samples[:, feature_index].reshape(-1,1))
+    if scaler is not None:
+        for feature_index in range(first_feature_index, last_feature_index + 1):
+            scaler.partial_fit(samples[:, feature_index].reshape(-1,1))
 
-    for feature_index in range(first_feature_index, last_feature_index + 1):
-        scaler.transform(samples[:, feature_index].reshape(-1,1))
+        for feature_index in range(first_feature_index, last_feature_index + 1):
+            scaler.transform(samples[:, feature_index].reshape(-1,1))
     
     scalers_dict[first_feature_index] = scaler
 
@@ -123,6 +124,8 @@ def _get_scaler(config, feature_index):
         return MinMaxScaler(copy=False)
     elif scaling_method == "standardize":
         return StandardScaler(copy=False)
+    elif scaling_method == "raw":
+        return None
     raise ValueError(f"scaling method for index {feature_index} is unknown")
 
 
