@@ -3,6 +3,7 @@ import logging
 from consts import DATASET_CONSTS
 import matplotlib.pyplot as plt
 
+import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam, RMSprop
@@ -13,28 +14,30 @@ class DeepModel:
     def __init__(self):
         self.model = Sequential()
         self.model.add(Dense(1024, activation="relu", input_shape=(DATASET_CONSTS.FEATURES_COUNT, )))
-        self.model.add(Dense(512, activation="relu"))
+        self.model.add(Dropout(0.3))
+        self.model.add(Dense(256, activation="relu"))
+        self.model.add(Dropout(0.3))
         self.model.add(Dense(128, activation="relu"))
+        self.model.add(Dense(64, activation="relu"))
         self.model.add(Dense(1))
 
         # Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07)
-        self.model.compile(optimizer=RMSprop(learning_rate=0.001),
-                            loss='mean_squared_error')
-        #, metrics =[RootMeanSquaredError(name='rmse')]
+        lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(initial_learning_rate=0.001, decay_steps=1000, decay_rate=0.9)
+        self.model.compile(optimizer=RMSprop(learning_rate=lr_schedule),
+                            loss='mean_squared_error')  #, metrics =[RootMeanSquaredError(name='rmse')]
         self.epochs = 5
         self.batch_size = 32
-        self.validation_split = 0.3
         
     def summary(self):
         self.model.summary()
 
-    def fit(self, samples, targets, ):
-        history = self.model.fit(samples,
-                                targets,
+    def fit(self, x_train, x_valid, y_train, y_valid):
+        history = self.model.fit(x_train,
+                                y_train,
                                 epochs=self.epochs,
                                 verbose=1,
                                 batch_size=self.batch_size,
-                                validation_split=self.validation_split)
+                                validation_data=(x_valid, y_valid))
         return history
 
     def plot_history(self, history, trivial_rmse=None):

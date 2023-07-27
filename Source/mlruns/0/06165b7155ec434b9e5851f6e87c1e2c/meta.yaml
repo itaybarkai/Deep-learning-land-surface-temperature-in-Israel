@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MasterProject/git/Source/mlruns/0/06165b7155ec434b9e5851f6e87c1e2c/artifacts
+end_time: 1690157560058
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 06165b7155ec434b9e5851f6e87c1e2c
+run_name: kindly-snake-399
+run_uuid: 06165b7155ec434b9e5851f6e87c1e2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690157559621
+status: 4
+tags: []
+user_id: itay

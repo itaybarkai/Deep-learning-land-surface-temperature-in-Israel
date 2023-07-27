@@ -2,11 +2,11 @@ import os
 
 class FILE_CONSTS:
     def LST_FORMAT_BY_YEAR_FILE(year):
-        return os.getcwd() + f"\\..\\Data\\LST\\unprocessed\\LST_{year}_NetCDF.nc"
+        return "./Data/LST/unprocessed/LST_{year}_NetCDF.nc"
     def TOPOGRAPHY_FILE():
-        return os.getcwd() + "\\..\\Data\\Topography\\Topography_Israel.tif"
+        return os.getcwd() + "/../Data/Topography/Topography_Israel.tif"
     def CONFIG_FOLDER():
-        return os.getcwd() + "\\..\\Configs\\"
+        return os.getcwd() + "/../Configs/"
 
 
 class DATA_CONSTS:

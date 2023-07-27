@@ -5,6 +5,7 @@ from consts import GENERAL_CONSTS, DATASET_CONSTS
 from netCDFHandler import get_raw_LST_data
 from geoTiffHandler import get_raw_topography_data
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from config import Configuration
 
 
 def get_day_dataset(year, test_lower_days=None):
@@ -51,7 +52,7 @@ def get_day_dataset(year, test_lower_days=None):
                 day_sin = math.sin(2 * math.pi * days[day] / 365)
 
                 # consts.DATASET_CONSTS.FEATURES has list of these expected features
-                single_column_features =    np.array([day_cos,
+                single_column_features = np.array([day_cos,
                                             day_sin,
                                             longs[lst_grid_middle_long],
                                             lats[lst_grid_middle_lat],
@@ -71,86 +72,68 @@ def get_day_dataset(year, test_lower_days=None):
     return output_samples, output_targets_diffs
 
 
-def preprocess_dataset(samples, config):
-    """
-    Does feature scaling based on the methods in the given config. Works in place.
-    returns dict of feature index to sklearn scaler used on feature
-    """
-    scalers_dict = {}
-    # daycos and daysin remain the same
-    for feature_index in [DATASET_CONSTS.LONG_INDEX,
-                          DATASET_CONSTS.LAT_INDEX,
-                          DATASET_CONSTS.LST_AVG_INDEX,
-                          DATASET_CONSTS.HEIGHT_AVG_INDEX]:
-        _preprocess_single_feature(samples, scalers_dict, config, feature_index)
-    _preprocess_multiple_features(samples, scalers_dict, config, DATASET_CONSTS.FIRST_HEIGHT_DIFF, DATASET_CONSTS.LAST_HEIGHT_DIFF)
-    return scalers_dict
+class Preproccesser:
+    def __init__(self, config):
+        if isinstance(config, str):
+            config = Configuration(config)
+        self.config = config
+        self.scalers_dict = {}
+
+    def preprocess_dataset(self, samples, train=True):
+        """
+        Does feature scaling based on the methods in the given config. Works in place.
+        returns dict of feature index to sklearn scaler used on feature
+        """
+        # daycos and daysin remain the same
+        for feature_index in [DATASET_CONSTS.LONG_INDEX,
+                            DATASET_CONSTS.LAT_INDEX,
+                            DATASET_CONSTS.LST_AVG_INDEX,
+                            DATASET_CONSTS.HEIGHT_AVG_INDEX]:
+            self._preprocess_single_feature(samples, feature_index, train)
+        self._preprocess_multiple_features(samples, DATASET_CONSTS.FIRST_HEIGHT_DIFF, DATASET_CONSTS.LAST_HEIGHT_DIFF, train)
 
 
-def _preprocess_single_feature(samples, scalers_dict, config, feature_index):
-    """
-    Perform a method of scaling based on the index method in given config. In Place.
-    The performed scaler is kept in the given scalers_dict
-    """
-    scaler = _get_scaler(config, feature_index)
+    def _preprocess_single_feature(self, samples, feature_index, train=True):
+        """
+        Perform a method of scaling based on the index method in given config. In Place.
+        The performed scaler is kept in the given scalers_dict
+        """
+        scaler = self._get_scaler(feature_index) if train else self.scalers_dict[feature_index]
 
-    scaler.fit(samples[:, feature_index].reshape(-1,1))
-    scaler.transform(samples[:, feature_index].reshape(-1,1))
-
-    scalers_dict[feature_index] = scaler
-
-
-def _preprocess_multiple_features(samples, scalers_dict, config, first_feature_index, last_feature_index):
-    """
-    Perform a method of scaling based on the first index feature in the given config. In Place.
-    Scaling is fitted and transformed over first to last features as they were a single feature.
-    The performed scaler is kept in the given scalers_dict
-    """
-    scaler = _get_scaler(config, first_feature_index)
-    if scaler is not None:
-        for feature_index in range(first_feature_index, last_feature_index + 1):
-            scaler.partial_fit(samples[:, feature_index].reshape(-1,1))
-
-        for feature_index in range(first_feature_index, last_feature_index + 1):
+        if scaler is not None:
+            if train:
+                scaler.fit(samples[:, feature_index].reshape(-1,1))
             scaler.transform(samples[:, feature_index].reshape(-1,1))
-    
-    scalers_dict[first_feature_index] = scaler
+
+        self.scalers_dict[feature_index] = scaler
 
 
-def _get_scaler(config, feature_index):
-    """Returns the wanted scaling method object based on the config of the given feature index"""
-    scaling_method = config.scale_method_by_feature_index[feature_index]
-    if scaling_method == "normalize":
-        return MinMaxScaler(copy=False)
-    elif scaling_method == "standardize":
-        return StandardScaler(copy=False)
-    elif scaling_method == "raw":
-        return None
-    raise ValueError(f"scaling method for index {feature_index} is unknown")
+    def _preprocess_multiple_features(self, samples, first_feature_index, last_feature_index, train=True):
+        """
+        Perform a method of scaling based on the first index feature in the given config. In Place.
+        Scaling is fitted and transformed over first to last features as they were a single feature.
+        The performed scaler is kept in the given scalers_dict
+        """
+        scaler = self._get_scaler(first_feature_index) if train else self.scalers_dict[first_feature_index]
+        if scaler is not None:
+            if train:
+                for feature_index in range(first_feature_index, last_feature_index + 1):
+                    scaler.partial_fit(samples[:, feature_index].reshape(-1,1))
+
+            for feature_index in range(first_feature_index, last_feature_index + 1):
+                scaler.transform(samples[:, feature_index].reshape(-1,1))
+        
+        self.scalers_dict[first_feature_index] = scaler
 
 
-def _test_validity_map():
-    "only for debug - shows a plot of valid/invalid lst data points"
-    import matplotlib.pyplot as plt
+    def _get_scaler(self, feature_index):
+        """Returns the wanted scaling method object based on the config of the given feature index"""
+        scaling_method = self.config.scale_method_by_feature_index[feature_index]
+        if scaling_method == "normalize":
+            return MinMaxScaler(copy=False)
+        elif scaling_method == "standardize":
+            return StandardScaler(copy=False)
+        elif scaling_method == "raw":
+            return None
+        raise ValueError(f"scaling method for index {feature_index} is unknown")
 
-    longs, lats, days, raw_data = get_raw_LST_data(year=2020, test_lower_days=2)
-    # raw_data.shape = (days, lats, longs)
-
-    day = 0
-    raw_data_0 = raw_data[day, :, :]
-
-    fig, (ax0, ax1) = plt.subplots(1,2)
-    ax0.imshow(raw_data_0.mask, cmap=plt.cm.binary, interpolation='nearest')
-    ax0.set_title("day 0")
-    ax0.set_xlabel("longs")
-    ax0.set_ylabel("lats")
-
-
-    day = 1
-    raw_data_1 = raw_data[day, :, :]
-
-    ax1.imshow(raw_data_1.mask, cmap=plt.cm.binary, interpolation='nearest')
-    ax1.set_title("day 1")
-    ax1.set_xlabel("longs")
-    ax1.set_ylabel("lats")
-    plt.show()
