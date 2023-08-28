@@ -1,5 +1,6 @@
 import yaml
 import os
+import mlflow
 from consts import FILE_CONSTS, DATASET_CONSTS
 
 def load_config(config_name):
@@ -22,6 +23,11 @@ class Configuration():
             DATASET_CONSTS.HEIGHT_AVG_INDEX : self.config_fs["height_avg"],
             DATASET_CONSTS.FIRST_HEIGHT_DIFF : self.config_fs["height_diffs"],
             }
+        self.config_model = self.config["model"]
+        self.split_days = self.config_model["split_days"]
+        self.split_space = self.config_model["split_space"]
+        assert(not (self.split_days and self.split_space))
+
         
 if __name__ == "__main__":
     config = load_config("default.yaml")

@@ -15,5 +15,5 @@ def get_raw_topography_data(filename=None):
     """
     Returns a numpy array of the topography data of "filename", defaults to FILE_CONSTS.TOPOGRAPHY_FILE
     """
-    logging.info(f"get_raw_topography_data DONE: filename={filename}")
+    print(f"get_raw_topography_data DONE: filename={filename}")
     return GeoTiffHandler(filename).data

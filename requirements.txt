@@ -9,3 +9,6 @@ PyYAML==6.0.1
 keras==2.13.1
 tifffile==2023.7.10
 netCDF4==1.6.4
+imagecodecs==2023.3.16
+ipdb==0.13.13
+setuptools==67.7.2

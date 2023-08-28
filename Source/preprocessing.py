@@ -1,7 +1,8 @@
+import os
 import logging
 import math
 import numpy as np
-from consts import GENERAL_CONSTS, DATASET_CONSTS
+from consts import GENERAL_CONSTS, DATASET_CONSTS, FILE_CONSTS
 from netCDFHandler import get_raw_LST_data
 from geoTiffHandler import get_raw_topography_data
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
@@ -14,7 +15,7 @@ def get_day_dataset(year, test_lower_days=None):
     year: only read this year's LST data
     test_lower_days: only read this year's first X days (used for faster training as debug)
     """
-    logging.info(f"get_day_dataset START: year={year}, lower_days={test_lower_days}")
+    print(f"get_day_dataset START: year={year}, lower_days={test_lower_days}")
     longs, lats, days, lst_raw_data = get_raw_LST_data(year, test_lower_days)
     height_data = get_raw_topography_data()
 
@@ -46,8 +47,6 @@ def get_day_dataset(year, test_lower_days=None):
                 height_grid_avg =  np.mean(height_grid)
                 height_grid_diffs = height_grid - height_grid_avg
 
-                if (days[day] >= 365):
-                    logging(f"get_day_dataset: got day {days[day]}, cyclic on 365")
                 day_cos = math.cos(2 * math.pi * days[day] / 365)
                 day_sin = math.sin(2 * math.pi * days[day] / 365)
 
@@ -63,13 +62,37 @@ def get_day_dataset(year, test_lower_days=None):
                 output_targets[cur_output_index] = np.array([lst_grid_middle])
                 cur_output_index += 1
                 
-        logging.info(f"finished processing day: {day}")
+        print(f"finished processing day: {day}")
     output_samples = output_samples[:cur_output_index]
     output_targets = output_targets[:cur_output_index].reshape(-1, 1)
 
     output_targets_diffs = output_targets - output_samples[:, DATASET_CONSTS.LST_AVG_INDEX].reshape(-1,1)
-    logging.info(f"get_day_dataset DONE: year={year}, lower_days={test_lower_days}, with {cur_output_index} samples")
+    print(f"get_day_dataset DONE: year={year}, lower_days={test_lower_days}, with {cur_output_index} samples")
     return output_samples, output_targets_diffs
+
+
+def get_cached_day_dataset(year, test_lower_days=None):
+    if os.path.exists(FILE_CONSTS.PROCESSED_BY_YEAR_FILE(year, test_lower_days)):
+        samples, targets = load_processed_data(year=year, days=test_lower_days)
+        print("Loaded processed data")
+    else:
+        samples, targets = get_day_dataset(year=year, test_lower_days=test_lower_days)
+        save_processed_data(samples, targets, year=year, days=test_lower_days)
+        print("Created and Saved processed data")
+
+    return samples, targets
+
+
+def save_processed_data(samples, targets, year, days):
+    filename = FILE_CONSTS.PROCESSED_BY_YEAR_FILE(year, days)
+    np.savez(filename, samples=samples, targets=targets)
+
+def load_processed_data(year, days):
+    filename = FILE_CONSTS.PROCESSED_BY_YEAR_FILE(year, days)
+    npz = np.load(filename)
+    samples = npz["samples"]
+    targets = npz["targets"]
+    return samples, targets
 
 
 class Preproccesser:
@@ -85,6 +108,9 @@ class Preproccesser:
         returns dict of feature index to sklearn scaler used on feature
         """
         # daycos and daysin remain the same
+
+        print(f"preprocess_dataset: starting train") if train else \
+            print(f"preprocess_dataset: starting valid") 
         for feature_index in [DATASET_CONSTS.LONG_INDEX,
                             DATASET_CONSTS.LAT_INDEX,
                             DATASET_CONSTS.LST_AVG_INDEX,

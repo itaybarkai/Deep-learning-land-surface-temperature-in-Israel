@@ -1,43 +1,62 @@
+import os
 import numpy as np
 import logging
-from consts import DATASET_CONSTS
+from consts import DATASET_CONSTS, FILE_CONSTS
 import matplotlib.pyplot as plt
-
 import tensorflow as tf
-from keras.models import Sequential
-from keras.layers import Dense, Dropout
+from tensorflow import keras
+from keras.models import Sequential, load_model
+from keras.layers import Dense, Dropout, BatchNormalization, Activation
 from keras.optimizers import Adam, RMSprop
-from keras.metrics import RootMeanSquaredError
+from keras.callbacks import ModelCheckpoint
 import mlflow
+import mlflow.sklearn
 
 class DeepModel:
-    def __init__(self):
+    def __init__(self, print_summary=False):
         self.model = Sequential()
-        self.model.add(Dense(1024, activation="relu", input_shape=(DATASET_CONSTS.FEATURES_COUNT, )))
-        self.model.add(Dropout(0.3))
-        self.model.add(Dense(256, activation="relu"))
-        self.model.add(Dropout(0.3))
-        self.model.add(Dense(128, activation="relu"))
-        self.model.add(Dense(64, activation="relu"))
+        self.model.add(Dense(1024, activation="relu", input_shape=(DATASET_CONSTS.FEATURES_COUNT, ) 
+                             , kernel_initializer="he_normal"))
+        self.model.add(Dropout(0.4))
+        self.model.add(Dense(512, activation="relu"
+                             , kernel_initializer="he_normal"))
+        self.model.add(Dropout(0.4))
+        self.model.add(Dense(256, activation="relu"
+                             , kernel_initializer="he_normal"))
+        self.model.add(Dropout(0.4))
+        self.model.add(Dense(128, activation="relu"
+                             , kernel_initializer="he_normal"))
+        self.model.add(Dropout(0.2))
         self.model.add(Dense(1))
 
-        # Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07)
-        lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(initial_learning_rate=0.001, decay_steps=1000, decay_rate=0.9)
-        self.model.compile(optimizer=RMSprop(learning_rate=lr_schedule),
-                            loss='mean_squared_error')  #, metrics =[RootMeanSquaredError(name='rmse')]
-        self.epochs = 5
-        self.batch_size = 32
+        opt = Adam(learning_rate=0.001)
         
+        self.model.compile(optimizer=opt, loss='mean_squared_error')
+        
+        self.epochs = 40
+        self.batch_size = 128
+        
+        if print_summary:
+            self.summary()
+
     def summary(self):
         self.model.summary()
 
     def fit(self, x_train, x_valid, y_train, y_valid):
+        best_model_file = 'temp_best_model.x'
+        callbacks = [ModelCheckpoint(filepath=best_model_file, save_best_only=True, monitor='val_loss', mode='min')]
         history = self.model.fit(x_train,
                                 y_train,
                                 epochs=self.epochs,
-                                verbose=1,
+                                verbose=2,
+                                shuffle=True,
                                 batch_size=self.batch_size,
-                                validation_data=(x_valid, y_valid))
+                                validation_data=(x_valid, y_valid),
+                                use_multiprocessing = True,
+                                callbacks=callbacks)
+        self.model = load_model(best_model_file)
+        # Log Config
+        mlflow.log_artifact(best_model_file)
         return history
 
     def plot_history(self, history, trivial_rmse=None):
@@ -51,6 +70,11 @@ class DeepModel:
         ax.grid(True)
         plt.show()
 
-
     def predict(self, samples):
         return self.model.predict(samples)
+    
+    def evaluate(self, samples, targets, verbose=2):
+        return self.model.evaluate(samples, targets, batch_size=self.batch_size, verbose=verbose)
+    
+    def log_model(self, signature):
+        mlflow.sklearn.log_model(self.model, "my model", signature=signature)

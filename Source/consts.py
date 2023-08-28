@@ -1,12 +1,14 @@
 import os
 
 class FILE_CONSTS:
+    def PROCESSED_BY_YEAR_FILE(year, days):
+        return f"./Data/Processed/DATA_{year}_{days}_days_processed.npz"
     def LST_FORMAT_BY_YEAR_FILE(year):
-        return "./Data/LST/unprocessed/LST_{year}_NetCDF.nc"
+        return f"./Data/LST/unprocessed/LST_{year}_NetCDF.nc"
     def TOPOGRAPHY_FILE():
-        return os.getcwd() + "/../Data/Topography/Topography_Israel.tif"
+        return "./Data/Topography/Topography_Israel.tif"
     def CONFIG_FOLDER():
-        return os.getcwd() + "/../Configs/"
+        return "./Configs/"
 
 
 class DATA_CONSTS:
@@ -32,6 +34,12 @@ class DATA_CONSTS:
 
 class GENERAL_CONSTS:
     GRID_SIZE = 9
+    LONG_UNITS = 409
+    LAT_UNITS = 603
+    UNIT_LENGTH = 0.00832402
+    LONG_MINIMUM = 33.20034536095077 
+    LAT_MINIMUM = 28.996716325654262 
+
 
 class DATASET_CONSTS:
     FEATURES = ["day_cos", "day_sin", "long", "lat", "lst_avg", "height_avg"] + \

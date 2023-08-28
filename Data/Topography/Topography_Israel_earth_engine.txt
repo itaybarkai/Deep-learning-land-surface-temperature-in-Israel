@@ -16,8 +16,9 @@ Export.image.toDrive({
 });
 
 
-//Map.setCenter(35.20034536095077, 31.00777509644337)
-//Map.addLayer(israel)
-//var i_data = dataset.clip(israel)
-//print (i_data);
-//print(i_data.projection().nominalScale())
+// Visualization of BBOX //
+// Map.setCenter(35.20034536095077, 31.00777509644337)
+// Map.addLayer(israel)
+// var i_data = dataset.clip(israel)
+// print (i_data);
+// print(i_data.projection().nominalScale())

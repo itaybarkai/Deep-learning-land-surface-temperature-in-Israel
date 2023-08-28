@@ -63,5 +63,5 @@ def get_raw_LST_data(year, test_lower_days=None, only_day=True):
 
     assert(longs.shape[0] == 409 and lats.shape[0] == 603)
 
-    logging.info(f"get_raw_LST_data DONE: year={year}, lower_days={test_lower_days}, only_day={only_day}")
+    print(f"get_raw_LST_data DONE: year={year}, lower_days={test_lower_days}, only_day={only_day}")
     return (longs, lats, days, raw_data)

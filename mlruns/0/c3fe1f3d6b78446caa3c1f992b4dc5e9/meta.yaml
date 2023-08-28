@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MasterProject/git/mlruns/0/c3fe1f3d6b78446caa3c1f992b4dc5e9/artifacts
+end_time: 1690652620446
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c3fe1f3d6b78446caa3c1f992b4dc5e9
+run_name: worried-cod-19
+run_uuid: c3fe1f3d6b78446caa3c1f992b4dc5e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690652572465
+status: 3
+tags: []
+user_id: itay

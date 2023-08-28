@@ -1,0 +1,1 @@
+tar -czf /project/mlruns.tar.gz /project/mlruns

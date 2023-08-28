@@ -4,9 +4,9 @@ feature_scaling:
   day_sin: raw
   long: normalize
   lat: normalize
-  lst_avg: normalize
-  height_avg: raw
-  height_diffs: raw
+  lst_avg: standardize
+  height_avg: standardize
+  height_diffs: standardize
 
 model:
   split_days: False
