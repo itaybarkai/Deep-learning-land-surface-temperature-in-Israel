@@ -44,7 +44,7 @@ if __name__ == "__main__":
         config = Configuration("default.yaml")
         # Get Processed Data:
         year = 2020
-        test_lower_days = 10
+        test_lower_days = 1
         print("Days: ", test_lower_days, "  Year: ", year)
         samples, targets = get_cached_day_dataset(year=year, test_lower_days=test_lower_days)
 

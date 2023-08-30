@@ -33,7 +33,7 @@ class DeepModel:
         
         self.model.compile(optimizer=opt, loss='mean_squared_error')
         
-        self.epochs = 40
+        self.epochs = 5
         self.batch_size = 128
         
         if print_summary:

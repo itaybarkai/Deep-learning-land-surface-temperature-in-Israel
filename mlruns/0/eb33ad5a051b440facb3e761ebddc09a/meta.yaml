@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MasterProject/git/mlruns/0/eb33ad5a051b440facb3e761ebddc09a/artifacts
+end_time: 1692384072404
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: eb33ad5a051b440facb3e761ebddc09a
+run_name: dapper-hound-652
+run_uuid: eb33ad5a051b440facb3e761ebddc09a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692384045386
+status: 4
+tags: []
+user_id: root
