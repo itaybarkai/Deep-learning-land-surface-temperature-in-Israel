@@ -1,0 +1,6 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\aa80e39969f0464e99bac89bde9233e9\inputs\1b1d4ec529264e59c6e62ccde7c7c9dd/artifacts
+destination_type: RUN
+source_id: 3912b3b427ba827518d1e5c3a0448472
+source_type: DATASET
+tags:
+  mlflow.data.context: train

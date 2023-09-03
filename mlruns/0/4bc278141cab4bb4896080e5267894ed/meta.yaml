@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\4bc278141cab4bb4896080e5267894ed/artifacts
+end_time: 1693776135820
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4bc278141cab4bb4896080e5267894ed
+run_name: fortunate-hare-270
+run_uuid: 4bc278141cab4bb4896080e5267894ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693774821544
+status: 3
+tags: []
+user_id: root

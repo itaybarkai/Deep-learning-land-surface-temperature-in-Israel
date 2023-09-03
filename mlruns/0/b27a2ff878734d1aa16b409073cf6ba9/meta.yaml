@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\b27a2ff878734d1aa16b409073cf6ba9/artifacts
+end_time: 1691862114948
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b27a2ff878734d1aa16b409073cf6ba9
+run_name: adorable-donkey-765
+run_uuid: b27a2ff878734d1aa16b409073cf6ba9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691861947304
+status: 4
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\364fb2bc3b1f4083932906a4e5f0a42f/artifacts
+end_time: 1692386661765
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 364fb2bc3b1f4083932906a4e5f0a42f
+run_name: aged-cub-225
+run_uuid: 364fb2bc3b1f4083932906a4e5f0a42f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692386282688
+status: 4
+tags: []
+user_id: root

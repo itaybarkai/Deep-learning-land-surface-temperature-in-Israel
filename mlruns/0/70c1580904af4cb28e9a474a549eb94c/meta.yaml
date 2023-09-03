@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\70c1580904af4cb28e9a474a549eb94c/artifacts
+end_time: 1691847175412
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 70c1580904af4cb28e9a474a549eb94c
+run_name: marvelous-lamb-382
+run_uuid: 70c1580904af4cb28e9a474a549eb94c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691847162817
+status: 4
+tags: []
+user_id: root

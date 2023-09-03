@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\83c35a32ccd44467a931e62b50c5a3c6/artifacts
+end_time: 1693768895466
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 83c35a32ccd44467a931e62b50c5a3c6
+run_name: adorable-mule-657
+run_uuid: 83c35a32ccd44467a931e62b50c5a3c6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693768890384
+status: 4
+tags: []
+user_id: root

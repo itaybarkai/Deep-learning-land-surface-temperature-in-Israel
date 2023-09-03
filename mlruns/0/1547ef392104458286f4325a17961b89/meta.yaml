@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\1547ef392104458286f4325a17961b89/artifacts
+end_time: 1693767971859
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1547ef392104458286f4325a17961b89
+run_name: crawling-snipe-191
+run_uuid: 1547ef392104458286f4325a17961b89
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693767689802
+status: 3
+tags: []
+user_id: root

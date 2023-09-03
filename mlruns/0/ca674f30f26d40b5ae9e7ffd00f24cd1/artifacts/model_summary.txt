@@ -1,0 +1,37 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense (Dense)               (None, 2048)              180224    
+                                                                 
+ batch_normalization (Batch  (None, 2048)              8192      
+ Normalization)                                                  
+                                                                 
+ dropout (Dropout)           (None, 2048)              0         
+                                                                 
+ dense_1 (Dense)             (None, 1024)              2098176   
+                                                                 
+ batch_normalization_1 (Bat  (None, 1024)              4096      
+ chNormalization)                                                
+                                                                 
+ dropout_1 (Dropout)         (None, 1024)              0         
+                                                                 
+ dense_2 (Dense)             (None, 512)               524800    
+                                                                 
+ batch_normalization_2 (Bat  (None, 512)               2048      
+ chNormalization)                                                
+                                                                 
+ dropout_2 (Dropout)         (None, 512)               0         
+                                                                 
+ dense_3 (Dense)             (None, 128)               65664     
+                                                                 
+ batch_normalization_3 (Bat  (None, 128)               512       
+ chNormalization)                                                
+                                                                 
+ dense_4 (Dense)             (None, 1)                 129       
+                                                                 
+=================================================================
+Total params: 2883841 (11.00 MB)
+Trainable params: 2876417 (10.97 MB)
+Non-trainable params: 7424 (29.00 KB)
+_________________________________________________________________

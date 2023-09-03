@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\2091ce321aff44f985d3072bdf0a51be/artifacts
+end_time: 1691849131292
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2091ce321aff44f985d3072bdf0a51be
+run_name: placid-goose-776
+run_uuid: 2091ce321aff44f985d3072bdf0a51be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691848857821
+status: 3
+tags: []
+user_id: root

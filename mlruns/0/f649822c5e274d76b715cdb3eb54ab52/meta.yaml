@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\f649822c5e274d76b715cdb3eb54ab52/artifacts
+end_time: 1691848415421
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f649822c5e274d76b715cdb3eb54ab52
+run_name: gaudy-ox-771
+run_uuid: f649822c5e274d76b715cdb3eb54ab52
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691848154766
+status: 3
+tags: []
+user_id: root

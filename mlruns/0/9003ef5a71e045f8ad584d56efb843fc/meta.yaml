@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\9003ef5a71e045f8ad584d56efb843fc/artifacts
+end_time: 1692386924270
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9003ef5a71e045f8ad584d56efb843fc
+run_name: useful-whale-47
+run_uuid: 9003ef5a71e045f8ad584d56efb843fc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692386666770
+status: 3
+tags: []
+user_id: root

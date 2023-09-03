@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\cbbb11ad7fd9472f91d2d846186af9d8/artifacts
+end_time: 1693775676530
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cbbb11ad7fd9472f91d2d846186af9d8
+run_name: gentle-toad-343
+run_uuid: cbbb11ad7fd9472f91d2d846186af9d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693775094328
+status: 3
+tags: []
+user_id: root

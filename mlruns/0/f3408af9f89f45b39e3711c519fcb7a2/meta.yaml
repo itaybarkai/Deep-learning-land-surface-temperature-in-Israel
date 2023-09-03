@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\f3408af9f89f45b39e3711c519fcb7a2/artifacts
+end_time: 1691865143626
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f3408af9f89f45b39e3711c519fcb7a2
+run_name: fun-smelt-172
+run_uuid: f3408af9f89f45b39e3711c519fcb7a2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691864557918
+status: 3
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\c5e0770acf41469db702dc2f62bac9db/artifacts
+end_time: 1691844256955
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c5e0770acf41469db702dc2f62bac9db
+run_name: bold-elk-394
+run_uuid: c5e0770acf41469db702dc2f62bac9db
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691844180544
+status: 3
+tags: []
+user_id: root

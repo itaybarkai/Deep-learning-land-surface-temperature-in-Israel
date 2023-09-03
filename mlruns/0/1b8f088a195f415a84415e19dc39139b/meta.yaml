@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\1b8f088a195f415a84415e19dc39139b/artifacts
+end_time: 1691846593020
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1b8f088a195f415a84415e19dc39139b
+run_name: awesome-crab-253
+run_uuid: 1b8f088a195f415a84415e19dc39139b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691846326890
+status: 3
+tags: []
+user_id: root

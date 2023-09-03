@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\00441bee988140deab5185cdbae94343/artifacts
+end_time: 1692384875962
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 00441bee988140deab5185cdbae94343
+run_name: fortunate-shrew-429
+run_uuid: 00441bee988140deab5185cdbae94343
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692384737517
+status: 3
+tags: []
+user_id: root

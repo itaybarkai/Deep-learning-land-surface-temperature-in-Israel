@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\cadbfafb5e8548768bddf9ec4e60d031/artifacts
+end_time: 1693769644254
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cadbfafb5e8548768bddf9ec4e60d031
+run_name: awesome-bird-68
+run_uuid: cadbfafb5e8548768bddf9ec4e60d031
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693769187663
+status: 3
+tags: []
+user_id: root

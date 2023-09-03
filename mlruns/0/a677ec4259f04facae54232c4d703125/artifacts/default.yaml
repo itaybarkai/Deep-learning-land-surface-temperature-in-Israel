@@ -1,0 +1,13 @@
+feature_scaling:
+  # "normalize" | "standardize" | "raw"
+  day_cos: raw
+  day_sin: raw
+  long: normalize
+  lat: normalize
+  lst_avg: standardize
+  height_avg: normalize
+  height_diffs: normalize
+
+model:
+  split_days: False
+  split_space: True

@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\2abdf1526f4349aba893b8f3edea3f12/artifacts
+end_time: 1692384997766
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2abdf1526f4349aba893b8f3edea3f12
+run_name: funny-dolphin-630
+run_uuid: 2abdf1526f4349aba893b8f3edea3f12
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692384903856
+status: 4
+tags: []
+user_id: root

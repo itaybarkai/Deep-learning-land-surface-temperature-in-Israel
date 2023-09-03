@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\e70bf1f8e1ac407e8a16490937f2ae4b/artifacts
+end_time: 1693773440301
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e70bf1f8e1ac407e8a16490937f2ae4b
+run_name: gentle-quail-769
+run_uuid: e70bf1f8e1ac407e8a16490937f2ae4b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693772284439
+status: 3
+tags: []
+user_id: root

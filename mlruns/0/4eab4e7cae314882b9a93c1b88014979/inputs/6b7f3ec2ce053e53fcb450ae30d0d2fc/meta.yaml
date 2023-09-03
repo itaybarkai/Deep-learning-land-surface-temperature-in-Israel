@@ -1,0 +1,6 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\4eab4e7cae314882b9a93c1b88014979\inputs\6b7f3ec2ce053e53fcb450ae30d0d2fc/artifacts
+destination_type: RUN
+source_id: b8e50fa8dc3bf20a47829412f3621922
+source_type: DATASET
+tags:
+  mlflow.data.context: eval

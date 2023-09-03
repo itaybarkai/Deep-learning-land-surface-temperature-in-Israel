@@ -1,0 +1,11 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\datasets\1c6a572b6278afef4751946137885826/artifacts
+name: dataset
+profile: '{"features_shape": [1153670, 87], "features_size": 100369290, "features_nbytes":
+  802954320, "targets_shape": [1153670, 1], "targets_size": 1153670, "targets_nbytes":
+  9229360}'
+schema: '{"mlflow_tensorspec": {"features": "[{\"type\": \"tensor\", \"tensor-spec\":
+  {\"dtype\": \"float64\", \"shape\": [-1, 87]}}]", "targets": "[{\"type\": \"tensor\",
+  \"tensor-spec\": {\"dtype\": \"float64\", \"shape\": [-1, 1]}}]"}}'
+source: '{"tags": {"mlflow.user": "root", "mlflow.source.name": "./Source/main.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

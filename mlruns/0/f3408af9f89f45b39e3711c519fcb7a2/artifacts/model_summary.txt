@@ -1,0 +1,39 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense (Dense)               (None, 1024)              90112     
+                                                                 
+ batch_normalization (Batch  (None, 1024)              4096      
+ Normalization)                                                  
+                                                                 
+ dropout (Dropout)           (None, 1024)              0         
+                                                                 
+ dense_1 (Dense)             (None, 400)               410000    
+                                                                 
+ batch_normalization_1 (Bat  (None, 400)               1600      
+ chNormalization)                                                
+                                                                 
+ dropout_1 (Dropout)         (None, 400)               0         
+                                                                 
+ dense_2 (Dense)             (None, 200)               80200     
+                                                                 
+ batch_normalization_2 (Bat  (None, 200)               800       
+ chNormalization)                                                
+                                                                 
+ dropout_2 (Dropout)         (None, 200)               0         
+                                                                 
+ dense_3 (Dense)             (None, 100)               20100     
+                                                                 
+ batch_normalization_3 (Bat  (None, 100)               400       
+ chNormalization)                                                
+                                                                 
+ dropout_3 (Dropout)         (None, 100)               0         
+                                                                 
+ dense_4 (Dense)             (None, 1)                 101       
+                                                                 
+=================================================================
+Total params: 607409 (2.32 MB)
+Trainable params: 603961 (2.30 MB)
+Non-trainable params: 3448 (13.47 KB)
+_________________________________________________________________

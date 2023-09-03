@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\f1868d35404948889d9cf838102f9dff/artifacts
+end_time: 1693774187469
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f1868d35404948889d9cf838102f9dff
+run_name: delightful-finch-529
+run_uuid: f1868d35404948889d9cf838102f9dff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693774006632
+status: 4
+tags: []
+user_id: root

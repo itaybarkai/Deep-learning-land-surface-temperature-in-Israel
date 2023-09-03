@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\106c49a7fbd2404ea0641d9a93a89b62/artifacts
+end_time: 1691850023700
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 106c49a7fbd2404ea0641d9a93a89b62
+run_name: mysterious-toad-377
+run_uuid: 106c49a7fbd2404ea0641d9a93a89b62
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691849734604
+status: 3
+tags: []
+user_id: root
