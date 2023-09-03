@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\5a2ebd7591ac47b78a80aad5db742105/artifacts
+end_time: 1691863631725
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5a2ebd7591ac47b78a80aad5db742105
+run_name: luminous-smelt-86
+run_uuid: 5a2ebd7591ac47b78a80aad5db742105
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691863069671
+status: 3
+tags: []
+user_id: root

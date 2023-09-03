@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\ae063125c45343aeb2e9bcb4e01bc4a5/artifacts
+end_time: 1691854842694
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ae063125c45343aeb2e9bcb4e01bc4a5
+run_name: capable-calf-10
+run_uuid: ae063125c45343aeb2e9bcb4e01bc4a5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691854435074
+status: 3
+tags: []
+user_id: root

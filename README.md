@@ -1,3 +1,3 @@
 # Deep-learning-land-surface-temperature-in-Israel
 
-file:///D:/MasterProject/git/mlruns/0
+See "LST Project Report" pdf in ./Documents for elaborate explanation

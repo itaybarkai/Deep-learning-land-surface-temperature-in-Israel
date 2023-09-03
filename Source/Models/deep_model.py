@@ -8,32 +8,44 @@ from tensorflow import keras
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, BatchNormalization, Activation
 from keras.optimizers import Adam, RMSprop
-from keras.callbacks import ModelCheckpoint
+from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 import mlflow
 import mlflow.sklearn
+
+
+def scheduler(epoch, lr):
+    if epoch < 5:
+        return lr
+    return lr / (2**0.1)
+    
 
 class DeepModel:
     def __init__(self, print_summary=False):
         self.model = Sequential()
-        self.model.add(Dense(1024, activation="relu", input_shape=(DATASET_CONSTS.FEATURES_COUNT, ) 
+        self.model.add(Dense(1024, input_shape=(DATASET_CONSTS.FEATURES_COUNT, ) 
                              , kernel_initializer="he_normal"))
-        self.model.add(Dropout(0.4))
-        self.model.add(Dense(512, activation="relu"
-                             , kernel_initializer="he_normal"))
-        self.model.add(Dropout(0.4))
-        self.model.add(Dense(256, activation="relu"
-                             , kernel_initializer="he_normal"))
-        self.model.add(Dropout(0.4))
-        self.model.add(Dense(128, activation="relu"
-                             , kernel_initializer="he_normal"))
+        self.model.add(BatchNormalization())
+        self.model.add(Activation("relu"))
         self.model.add(Dropout(0.2))
+        self.model.add(Dense(512, kernel_initializer="he_normal"))
+        self.model.add(BatchNormalization())
+        self.model.add(Activation("relu"))
+        self.model.add(Dropout(0.2))
+        self.model.add(Dense(256, kernel_initializer="he_normal"))
+        self.model.add(BatchNormalization())
+        self.model.add(Activation("relu"))
+        self.model.add(Dropout(0.2))
+        self.model.add(Dense(128, kernel_initializer="he_normal"))
+        self.model.add(BatchNormalization())
+        self.model.add(Activation("relu"))
+        #self.model.add(Dropout(0.2))
         self.model.add(Dense(1))
 
         opt = Adam(learning_rate=0.001)
         
         self.model.compile(optimizer=opt, loss='mean_squared_error')
         
-        self.epochs = 5
+        self.epochs = 60
         self.batch_size = 128
         
         if print_summary:
@@ -44,7 +56,8 @@ class DeepModel:
 
     def fit(self, x_train, x_valid, y_train, y_valid):
         best_model_file = 'temp_best_model.x'
-        callbacks = [ModelCheckpoint(filepath=best_model_file, save_best_only=True, monitor='val_loss', mode='min')]
+        lr_sched = LearningRateScheduler(scheduler)
+        callbacks = [lr_sched, ModelCheckpoint(filepath=best_model_file, save_best_only=True, monitor='val_loss', mode='min')]
         history = self.model.fit(x_train,
                                 y_train,
                                 epochs=self.epochs,

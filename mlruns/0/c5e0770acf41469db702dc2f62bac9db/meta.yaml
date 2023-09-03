@@ -1,4 +1,4 @@
-artifact_uri: file:///D:/MasterProject/git/mlruns/0/c5e0770acf41469db702dc2f62bac9db/artifacts
+artifact_uri: file://D:\MasterProject\git\mlruns\0\c5e0770acf41469db702dc2f62bac9db/artifacts
 end_time: 1691844256955
 entry_point_name: ''
 experiment_id: '0'

@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\59f3fe952aba4b469909f0089632317b/artifacts
+end_time: 1693769096762
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 59f3fe952aba4b469909f0089632317b
+run_name: dapper-shrike-167
+run_uuid: 59f3fe952aba4b469909f0089632317b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693769091453
+status: 4
+tags: []
+user_id: root

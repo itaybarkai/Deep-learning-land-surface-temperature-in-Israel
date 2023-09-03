@@ -1,4 +1,4 @@
-digest: 8c5c1059
+artifact_uri: file://D:\MasterProject\git\mlruns\0\datasets\7b8e62a95faf15463eaee668cb8f279e/artifacts
 name: dataset
 profile: '{"features_shape": [329620, 87], "features_size": 28676940, "features_nbytes":
   229415520, "targets_shape": [329620, 1], "targets_size": 329620, "targets_nbytes":

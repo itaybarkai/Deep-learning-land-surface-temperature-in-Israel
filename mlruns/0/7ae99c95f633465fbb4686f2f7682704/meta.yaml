@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\7ae99c95f633465fbb4686f2f7682704/artifacts
+end_time: 1693377613263
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7ae99c95f633465fbb4686f2f7682704
+run_name: resilient-bat-636
+run_uuid: 7ae99c95f633465fbb4686f2f7682704
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693377579536
+status: 3
+tags: []
+user_id: root

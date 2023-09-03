@@ -1,4 +1,4 @@
-destination_id: 3912b3b427ba827518d1e5c3a0448472
+artifact_uri: file://D:\MasterProject\git\mlruns\0\d298324a65f84a94b69dc0baef56dda4\inputs\3674a4446181856b2697323029a6d5c8/artifacts
 destination_type: RUN
 source_id: 3912b3b427ba827518d1e5c3a0448472
 source_type: DATASET

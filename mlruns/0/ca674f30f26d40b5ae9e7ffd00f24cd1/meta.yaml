@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\ca674f30f26d40b5ae9e7ffd00f24cd1/artifacts
+end_time: 1691870374046
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ca674f30f26d40b5ae9e7ffd00f24cd1
+run_name: upbeat-finch-227
+run_uuid: ca674f30f26d40b5ae9e7ffd00f24cd1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691870122305
+status: 4
+tags: []
+user_id: root

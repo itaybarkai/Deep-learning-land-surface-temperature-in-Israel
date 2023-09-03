@@ -44,7 +44,9 @@ if __name__ == "__main__":
         config = Configuration("default.yaml")
         # Get Processed Data:
         year = 2020
-        test_lower_days = 1
+        test_lower_days = 5
+        mlflow.log_param("year", year)
+        mlflow.log_param("test_lower_days", test_lower_days)
         print("Days: ", test_lower_days, "  Year: ", year)
         samples, targets = get_cached_day_dataset(year=year, test_lower_days=test_lower_days)
 
@@ -54,13 +56,13 @@ if __name__ == "__main__":
         if config.split_days and not config.split_space:
             x_train, x_valid, y_train, y_valid = train_test_split_by_days(samples, targets, test_size = 0.3,
                                                                         test_lower_days=test_lower_days,
-                                                                        seed=42)
+                                                                        seed=41)
         elif config.split_space:
             x_train, x_valid, y_train, y_valid = train_test_split_by_space(samples, targets, test_size = 0.3,
                                                                         seed=42)
         else:
             x_train, x_valid, y_train, y_valid = train_test_split(samples, targets, test_size = 0.3,
-                                                                random_state=42)
+                                                                random_state=43)
 
         # Free some ram, after the split creates new arrays
         del samples

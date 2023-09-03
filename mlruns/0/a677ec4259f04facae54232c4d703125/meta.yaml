@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\a677ec4259f04facae54232c4d703125/artifacts
+end_time: 1691872590676
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a677ec4259f04facae54232c4d703125
+run_name: youthful-trout-434
+run_uuid: a677ec4259f04facae54232c4d703125
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691871447071
+status: 3
+tags: []
+user_id: root

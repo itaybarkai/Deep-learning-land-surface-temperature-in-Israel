@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\56243a05d76648f6b86e01a66ababe56/artifacts
+end_time: 1693775442614
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 56243a05d76648f6b86e01a66ababe56
+run_name: bemused-fowl-801
+run_uuid: 56243a05d76648f6b86e01a66ababe56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693774390150
+status: 3
+tags: []
+user_id: root

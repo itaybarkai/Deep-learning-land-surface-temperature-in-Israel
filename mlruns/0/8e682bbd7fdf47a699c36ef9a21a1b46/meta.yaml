@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\8e682bbd7fdf47a699c36ef9a21a1b46/artifacts
+end_time: 1692385969048
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8e682bbd7fdf47a699c36ef9a21a1b46
+run_name: smiling-wolf-1000
+run_uuid: 8e682bbd7fdf47a699c36ef9a21a1b46
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692385768767
+status: 3
+tags: []
+user_id: root

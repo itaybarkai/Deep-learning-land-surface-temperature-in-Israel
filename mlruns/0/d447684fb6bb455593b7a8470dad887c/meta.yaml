@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\d447684fb6bb455593b7a8470dad887c/artifacts
+end_time: 1691878066435
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d447684fb6bb455593b7a8470dad887c
+run_name: magnificent-doe-649
+run_uuid: d447684fb6bb455593b7a8470dad887c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691876937656
+status: 3
+tags: []
+user_id: root

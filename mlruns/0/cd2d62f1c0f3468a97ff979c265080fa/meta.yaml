@@ -1,0 +1,15 @@
+artifact_uri: file://D:\MasterProject\git\mlruns\0\cd2d62f1c0f3468a97ff979c265080fa/artifacts
+end_time: 1693774349037
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cd2d62f1c0f3468a97ff979c265080fa
+run_name: glamorous-snail-483
+run_uuid: cd2d62f1c0f3468a97ff979c265080fa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693774331771
+status: 4
+tags: []
+user_id: root
